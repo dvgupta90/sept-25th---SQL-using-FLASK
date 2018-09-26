@@ -48,6 +48,40 @@ def student_add():
     return render_template("ack.html", github = github)
 
 
+@app.route("/project_form")
+def project_listing_form():
+
+
+    return render_template("project_listing_form.html")    
+
+
+@app.route("/project")
+def project_listing():
+
+    title = request.args.get('title')
+
+
+    title, description, max_grade = hackbright.get_project_by_title(title)
+
+    rows = hackbright.get_grades_by_title(title)
+
+    return render_template("project_details.html", title = title, description = description, max_grade = max_grade,  rows = rows)        
+
+
+
+
+# @app.route("/project")
+# def project_listing():
+
+#     title = request.args.get('title')
+
+
+#     title, description, max_grade = hackbright.get_project_by_title(title)
+
+#     rows = hackbright.get_grades_by_title(title)
+
+#     return render_template("project_details.html", title = title, description = description, max_grade = max_grade,  rows = rows)        
+
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
     app.run(debug=True)

@@ -12,7 +12,9 @@
   {% for item in rows %}
 
   <li>grade = {{item[1]}}</li>
-    <li>title = {{item[0]}}</li>
+    <li>
+    <a href="/project?title={{item[0]}}"> title = {{item[0]}} </a> 
+</li>
   {% endfor %}
 </ul>
 
