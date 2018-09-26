@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Info</title>
+</head>
+<body>
+  <h1>Project Description :{{ description }}   <br>Max Grade: {{ max_grade }}</h1>
+
+  <p>Project Title: {{ title }}</p>
+
+  <ul>
+  {% for item in row %}
+
+  <li>title = {{item[0]}}</li>
+    <li>description = {{item[1]}}</li>
+    <li>max_grade = {{item[2]}}</li>
+
+    <li>
+    <a href="/project?title={{item[0]}}"> title = {{item[0]}} </a> 
+    </li>
+  {% endfor %}
+  </ul>
+
+  <ul>
+  {% for item in rows %}
+
+  <li><a href="/student?github={{item[0]}}">github = {{item[0]}}</li>
+
+
+  {% endfor %}
+
+</ul>
+
+</body>
+</html>
